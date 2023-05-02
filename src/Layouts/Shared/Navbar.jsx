@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-secondary">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -28,24 +28,33 @@ const Navbar = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <Link to="/">Home</Link>
+              <NavLink to="/">Home</NavLink>
             </li>
             <li tabIndex={0}>
-              <Link to="/blog">Blog</Link>
+              <NavLink to="/blog">Blog</NavLink>
             </li>
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost normal-case text-xl">
+        <Link
+          to="/"
+          style={{ fontFamily: "Satisfy" }}
+          className="btn btn-ghost normal-case text-xl text-primary"
+        >
           Baburchi Ghor
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <Link to="/">Home</Link>
+            <NavLink to="/">Home</NavLink>
           </li>
           <li tabIndex={0}>
-            <Link to="/blog">Blog</Link>
+            <NavLink
+              className={({ isActive }) => (isActive ? "active" : "")}
+              to="/blog"
+            >
+              Blog
+            </NavLink>
           </li>
         </ul>
       </div>

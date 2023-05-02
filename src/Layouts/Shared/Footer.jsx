@@ -3,7 +3,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="footer footer-center p-10 bg-primary text-primary-content">
+    <footer className="footer footer-center p-10 bg-secondary text-primary-content">
       <div>
         <svg
           width="50px"
@@ -30,11 +30,17 @@ const Footer = () => {
             fill="#4CAF50"
           />
         </svg>
-        <p className="font-bold">
-          Baburchi Ghor Ltd. <br />
+        <p
+          style={{ fontFamily: "Satisfy" }}
+          className=" normal-case text-xl text-primary"
+        >
+          Baburchi Ghor Ltd.{" "}
+        </p>
+
+        <p className="font-bold text-black">
           Providing Authentic French Cuisuine since 1992
         </p>
-        <p>Copyright © 2023 - All right reserved</p>
+        <p className="text-black">Copyright © 2023 - All right reserved</p>
       </div>
     </footer>
   );
