@@ -7,7 +7,7 @@ import Footer from "../Shared/Footer";
 
 const Home = () => {
   return (
-    <div className="relative ">
+    <div className="relative min-h-screen">
       <Navbar></Navbar>
       <div>
         <Outlet></Outlet>
