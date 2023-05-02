@@ -41,65 +41,51 @@ const Header = () => {
           ))}
         </div>
       </div>
-      <div className="carousel w-full">
-        <div id="slide1" className="carousel-item relative w-full">
+      <div className="carousel carousel-center rounded-box">
+        <div className="carousel-item">
           <img
             src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-            className="w-full"
+            alt="Pizza"
           />
-          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-            <a href="#slide4" className="btn btn-primary btn-circle">
-              ❮
-            </a>
-            <a href="#slide2" className="btn btn-primary btn-circle">
-              ❯
-            </a>
-          </div>
         </div>
-        <div id="slide2" className="carousel-item relative w-full">
+        <div className="carousel-item">
           <img
             src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-            className="w-full"
+            alt="Pizza"
           />
-          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-            <a href="#slide1" className="btn btn-primary btn-circle">
-              ❮
-            </a>
-            <a href="#slide3" className="btn btn-primary btn-circle">
-              ❯
-            </a>
-          </div>
         </div>
-        <div id="slide3" className="carousel-item relative w-full">
+        <div className="carousel-item">
           <img
             src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-            className="w-full"
+            alt="Pizza"
           />
-          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-            <a href="#slide2" className="btn btn-primary btn-circle">
-              ❮
-            </a>
-            <a href="#slide4" className="btn btn-primary btn-circle">
-              ❯
-            </a>
-          </div>
         </div>
-        <div id="slide4" className="carousel-item relative w-full">
+        <div className="carousel-item">
           <img
             src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-            className="w-full"
+            alt="Pizza"
           />
-          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-            <a href="#slide3" className="btn btn-primary btn-circle">
-              ❮
-            </a>
-            <a href="#slide1" className="btn btn-primary btn-circle">
-              ❯
-            </a>
-          </div>
+        </div>
+        <div className="carousel-item">
+          <img
+            src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+            alt="Pizza"
+          />
+        </div>
+        <div className="carousel-item">
+          <img
+            src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+            alt="Pizza"
+          />
+        </div>
+        <div className="carousel-item">
+          <img
+            src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+            alt="Pizza"
+          />
         </div>
       </div>
-      <footer className="footer p-28 text-base-content">
+      <footer className=" footer p-28 text-base-content">
         <div>
           <span className="footer-title">Services</span>
           <a className="link link-hover">Catering</a>
@@ -119,7 +105,7 @@ const Header = () => {
         </div>
         <div>
           <span className="footer-title">Newsletter</span>
-          <div className="form-control w-80">
+          <div className="form-control w-full md:w-80">
             <label className="label">
               <span className="label-text">
                 To get Daily Updates{" "}

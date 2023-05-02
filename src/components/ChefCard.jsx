@@ -3,7 +3,7 @@ import React from "react";
 
 const ChefCard = () => {
   return (
-    <div className="card w-72 md:w-96 bg-base-100 shadow-xl">
+    <div className="card w-56 md:w-96 bg-base-100 shadow-xl">
       <figure>
         <img
           src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
