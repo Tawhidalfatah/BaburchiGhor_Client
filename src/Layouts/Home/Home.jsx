@@ -7,10 +7,14 @@ import Footer from "../Shared/Footer";
 
 const Home = () => {
   return (
-    <div>
+    <div className="relative min-h-screen">
       <Navbar></Navbar>
-      <Outlet></Outlet>
-      <Footer></Footer>
+      <div className="mb-10">
+        <Outlet></Outlet>
+      </div>
+      <div className="absolute bottom-0 w-full h-10">
+        <Footer></Footer>
+      </div>
     </div>
   );
 };
