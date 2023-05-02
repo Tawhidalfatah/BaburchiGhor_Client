@@ -7,9 +7,9 @@ import Footer from "../Shared/Footer";
 
 const Home = () => {
   return (
-    <div className="relative min-h-screen">
+    <div className="relative ">
       <Navbar></Navbar>
-      <div className="mb-10">
+      <div>
         <Outlet></Outlet>
       </div>
       <div className="absolute bottom-0 w-full h-10">

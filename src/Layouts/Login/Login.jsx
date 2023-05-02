@@ -49,7 +49,7 @@ const Login = () => {
               <button className="btn btn-primary">Login</button>
             </div>
             <div className="form-control mt-1">
-              <button className="btn  flex justify-evenly">
+              <button className="btn btn-accent flex justify-evenly">
                 Sign in With Google <FaGoogle className="h-7 w-7" />
               </button>
             </div>
