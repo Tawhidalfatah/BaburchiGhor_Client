@@ -3,6 +3,7 @@ import Home from "../Layouts/Home/Home";
 import Login from "../Layouts/Login/Login";
 import Blog from "../components/Blog";
 import Header from "../Layouts/Header/Header";
+import Register from "../Layouts/Register/Register";
 
 /* eslint-disable no-undef */
 const router = createBrowserRouter([
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <Login></Login>,
+      },
+      {
+        path: "register",
+        element: <Register></Register>,
       },
       {
         path: "blog",
