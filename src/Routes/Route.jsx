@@ -4,6 +4,7 @@ import Login from "../Layouts/Login/Login";
 import Blog from "../components/Blog";
 import Header from "../Layouts/Header/Header";
 import Register from "../Layouts/Register/Register";
+import ChefDetails from "../components/ChefDetails";
 
 /* eslint-disable no-undef */
 const router = createBrowserRouter([
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Header></Header>,
+      },
+      {
+        path: ":id",
+        element: <ChefDetails></ChefDetails>,
       },
       {
         path: "login",

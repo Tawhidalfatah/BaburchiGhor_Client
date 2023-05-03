@@ -1,7 +1,10 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from "react";
+import { Link } from "react-router-dom";
 
-const ChefCard = () => {
+const ChefCard = ({ chef }) => {
+  console.log(chef.id);
   return (
     <div className="card w-56 md:w-96 bg-base-100 shadow-xl">
       <figure>
@@ -10,13 +13,16 @@ const ChefCard = () => {
           alt="Shoes"
         />
       </figure>
-      <div className="card-body">
+      <div className="card-body ">
         <h2 className="card-title">Daniel</h2>
         <p>Years of Experience: 2</p>
         <p>Number of Recipes: 2</p>
         <p>Likes: 2</p>
-        <div className="card-actions justify-end">
-          <button className="btn btn-primary">View Recipes</button>
+        <br />
+        <div className="card-actions justify-start">
+          <Link to={`/${chef.id}`}>
+            <button className="btn btn-primary">View Recipe</button>{" "}
+          </Link>
         </div>
       </div>
     </div>

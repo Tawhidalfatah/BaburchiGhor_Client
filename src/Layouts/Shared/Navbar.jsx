@@ -45,10 +45,10 @@ const Navbar = () => {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-          <li>
+          <li className="text-white">
             <NavLink to="/">Home</NavLink>
           </li>
-          <li tabIndex={0}>
+          <li tabIndex={0} className="text-white">
             <NavLink
               className={({ isActive }) => (isActive ? "active" : "")}
               to="/blog"

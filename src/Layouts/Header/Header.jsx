@@ -35,9 +35,10 @@ const Header = () => {
       </div>
       <div className="mt-4 p-10">
         <h1 className="text-center text-primary text-7xl">Our Chefs</h1>
+
         <div className="m-5 md:container md:mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
           {allChefs.map((chef) => (
-            <ChefCard key={chef.id}></ChefCard>
+            <ChefCard key={chef.id} chef={chef}></ChefCard>
           ))}
         </div>
       </div>
@@ -85,46 +86,72 @@ const Header = () => {
           />
         </div>
       </div>
-      <footer className=" footer p-28 text-base-content">
-        <div>
-          <span className="footer-title">Services</span>
-          <a className="link link-hover">Catering</a>
-          <a className="link link-hover">Culinary</a>
-          <a className="link link-hover">Charity</a>
-        </div>
-        <div>
-          <span className="footer-title">Company</span>
-          <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
-        </div>
-        <div>
-          <span className="footer-title">Legal</span>
-          <a className="link link-hover">Terms of use</a>
-          <a className="link link-hover">Privacy policy</a>
-          <a className="link link-hover">Cookie policy</a>
-        </div>
-        <div>
-          <span className="footer-title">Newsletter</span>
-          <div className="form-control w-full md:w-80">
-            <label className="label">
-              <span className="label-text">
-                To get Daily Updates{" "}
-                <span className="text-primary">Subscibe</span>
-              </span>
-            </label>
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="username@site.com"
-                className="input input-bordered w-full pr-16"
-              />
-              <button className="btn btn-primary absolute top-0 right-0 rounded-l-none">
-                Subscribe
-              </button>
+      <div className="flex justify-center">
+        <div className="stats  md:p-60 container hidden md:inline-grid ">
+          <div className="stat">
+            <div className="stat-figure text-primary">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                className="inline-block w-8 h-8 stroke-current"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
             </div>
+            <div className="stat-title text-2xl">Endorsed By</div>
+            <div className="stat-value">61K</div>
+            <div className="stat-desc">2018 - 2023</div>
+          </div>
+
+          <div className="stat">
+            <div className="stat-figure text-primary">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                className="inline-block w-8 h-8 stroke-current"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+                ></path>
+              </svg>
+            </div>
+            <div className="stat-title text-2xl">New Users</div>
+            <div className="stat-value">4,200</div>
+            <div className="stat-desc">↗︎ 400 (22%)</div>
+          </div>
+
+          <div className="stat">
+            <div className="stat-figure text-primary">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                className="inline-block w-8 h-8 stroke-current"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"
+                ></path>
+              </svg>
+            </div>
+            <div className="stat-title text-2xl">New Registers</div>
+            <div className="stat-value">1,200</div>
+            <div className="stat-desc">↘︎ 90 (14%)</div>
           </div>
         </div>
-      </footer>
+      </div>
     </div>
   );
 };

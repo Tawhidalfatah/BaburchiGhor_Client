@@ -37,10 +37,10 @@ const Footer = () => {
           Baburchi Ghor Ltd.{" "}
         </p>
 
-        <p className="font-bold text-black">
+        <p className="font-bold text-white">
           Providing Authentic French Cuisuine since 1992
         </p>
-        <p className="text-black">Copyright © 2023 - All right reserved</p>
+        <p className="text-white">Copyright © 2023 - All right reserved</p>
       </div>
     </footer>
   );
