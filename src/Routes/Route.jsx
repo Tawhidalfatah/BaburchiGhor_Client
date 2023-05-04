@@ -5,20 +5,23 @@ import Blog from "../components/Blog";
 import Header from "../Layouts/Header/Header";
 import Register from "../Layouts/Register/Register";
 import ChefDetails from "../components/ChefDetails";
+import ErrorPage from "../components/ErrorPage";
 
 /* eslint-disable no-undef */
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home></Home>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
         element: <Header></Header>,
       },
       {
-        path: ":id",
+        path: "chef/:id",
         element: <ChefDetails></ChefDetails>,
+        loader: ({ params }) => fetch(`http://localhost:5000/${params.id}`),
       },
       {
         path: "login",

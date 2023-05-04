@@ -5,7 +5,6 @@ import { FaThumbsUp } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const ChefCard = ({ chef }) => {
-  console.log(chef.id);
   return (
     <div className="card w-56 md:w-96 bg-base-100 shadow-xl">
       <figure>
@@ -26,7 +25,7 @@ const ChefCard = ({ chef }) => {
         </p>
         <br />
         <div className="card-actions justify-center">
-          <Link to={`/${chef.id}`}>
+          <Link to={`chef/${chef.id}`}>
             <button className="btn btn-primary">View Recipes</button>{" "}
           </Link>
         </div>
