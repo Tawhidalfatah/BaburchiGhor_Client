@@ -4,6 +4,7 @@ import { Rating } from "@smastrom/react-rating";
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import LazyLoad from "react-lazy-load";
 
 const ChefRecipes = ({ recipe }) => {
   const notify = () => toast("Successfully Added to Favourites");
@@ -24,7 +25,9 @@ const ChefRecipes = ({ recipe }) => {
         </div>
         <div className="avatar flex justify-center my-5">
           <div className="w-24 rounded-full">
-            <img src={img} />
+            <LazyLoad>
+              <img src={img} />
+            </LazyLoad>
           </div>
         </div>
         <div className="flex justify-center">

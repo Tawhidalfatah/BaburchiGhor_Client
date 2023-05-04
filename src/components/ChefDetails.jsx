@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import { FaThumbsUp } from "react-icons/fa";
-import { Rating } from "@smastrom/react-rating";
+// import { Rating } from "@smastrom/react-rating";
+import LazyLoad from "react-lazy-load";
 
 import "@smastrom/react-rating/style.css";
 import { useLoaderData } from "react-router-dom";
@@ -17,11 +18,13 @@ const ChefDetails = () => {
           <div className="card-body">
             <div className="flex justify-center">
               <figure className="w-1/2">
-                <img
-                  className="rounded-full"
-                  src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-                  alt="Album"
-                />
+                <LazyLoad width={1024} height={762} threshold={0.99}>
+                  <img
+                    className="rounded-full"
+                    src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+                    alt="Album"
+                  />
+                </LazyLoad>
               </figure>
             </div>
             <div className="flex justify-center">
