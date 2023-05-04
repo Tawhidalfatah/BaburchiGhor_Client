@@ -1,12 +1,12 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
-
+  const { createUser, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -15,21 +15,31 @@ const Register = () => {
 
   const handleRegistration = (event) => {
     event.preventDefault();
-    createUser(email, password)
-      .then((result) => {
-        console.log(result.user);
-        updateProfile(result.user, {
-          displayName: name,
-          photoURL: photo,
+    if (password.length < 6) {
+      setError("Password needs to be 6 characters or more");
+      return;
+    }
+    if ((name, email, password)) {
+      createUser(email, password)
+        .then((result) => {
+          console.log(result.user);
+          updateProfile(result.user, {
+            displayName: name,
+            photoURL: photo,
+          })
+            .then(() => {})
+            .catch((error) => {
+              console.log(error);
+            });
+          logOut();
+          navigate("/login");
         })
-          .then(() => {})
-          .catch((error) => {
-            console.log(error);
-          });
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
+        .catch((error) => {
+          setError(error.message);
+        });
+    } else {
+      setError("Please Enter all the fields");
+    }
   };
 
   return (

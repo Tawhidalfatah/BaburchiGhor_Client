@@ -40,14 +40,18 @@ const Login = () => {
 
   const handleLogin = (event) => {
     event.preventDefault();
-    signIn(email, password)
-      .then((result) => {
-        console.log(result.user);
-        navigate("/");
-      })
-      .catch((error) => {
-        setError(error.message);
-      });
+    if ((email, password)) {
+      signIn(email, password)
+        .then((result) => {
+          console.log(result.user);
+          navigate("/");
+        })
+        .catch((error) => {
+          setError(error.message);
+        });
+    } else {
+      setError("Please Enter Email and Password");
+    }
   };
   return (
     <div className="hero min-h-screen ">
@@ -97,7 +101,7 @@ const Login = () => {
                 Login
               </button>
             </div>
-            <p>{error}</p>
+            <p className="text-primary">{error}</p>
             <div className="form-control mt-1">
               <button
                 onClick={handleGoogleSignIn}

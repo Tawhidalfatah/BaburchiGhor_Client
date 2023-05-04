@@ -1,11 +1,21 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import { Rating } from "@smastrom/react-rating";
-import React from "react";
+import React, { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ChefRecipes = ({ recipe }) => {
+  const notify = () => toast("Successfully Added to Favourites");
+
+  const [toggle, setToggle] = useState(false);
   const { ingredients, cooking_method, img } = recipe;
   console.log(ingredients);
+
+  const handleToggle = () => {
+    setToggle(!toggle);
+    notify();
+  };
   return (
     <div className="card w-full bg-base-100 shadow-xl">
       <div className="card-body">
@@ -29,7 +39,18 @@ const ChefRecipes = ({ recipe }) => {
           <Rating style={{ maxWidth: 180 }} value={3} readOnly />
         </div>
         <div className="card-actions justify-center">
-          <button className="btn btn-primary">Add to Favourite</button>
+          {toggle ? (
+            <button disabled className="btn btn-primary">
+              Add to Favourite
+            </button>
+          ) : (
+            <>
+              <button onClick={handleToggle} className="btn btn-primary">
+                Add to Favourite
+              </button>
+              <ToastContainer></ToastContainer>
+            </>
+          )}
         </div>
       </div>
     </div>
