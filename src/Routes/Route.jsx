@@ -6,6 +6,7 @@ import Header from "../Layouts/Header/Header";
 import Register from "../Layouts/Register/Register";
 import ChefDetails from "../components/ChefDetails";
 import ErrorPage from "../components/ErrorPage";
+import PrivateRoute from "./PrivateRoute";
 
 /* eslint-disable no-undef */
 const router = createBrowserRouter([
@@ -20,7 +21,11 @@ const router = createBrowserRouter([
       },
       {
         path: "chef/:id",
-        element: <ChefDetails></ChefDetails>,
+        element: (
+          <PrivateRoute>
+            <ChefDetails></ChefDetails>
+          </PrivateRoute>
+        ),
         loader: ({ params }) => fetch(`http://localhost:5000/${params.id}`),
       },
       {
