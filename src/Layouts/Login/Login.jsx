@@ -1,24 +1,48 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext, useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
-
+  let navigate = useNavigate();
+  const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
+  const [error, setError] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+  const handleGithubSignIn = () => {
+    githubSignIn()
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
 
   const handleLogin = (event) => {
     event.preventDefault();
     signIn(email, password)
       .then((result) => {
         console.log(result.user);
-        // navigate("/");
+        navigate("/");
       })
       .catch((error) => {
-        console.log(error.message);
+        setError(error.message);
       });
   };
   return (
@@ -50,7 +74,7 @@ const Login = () => {
               </label>
               <input
                 onChange={(e) => setPassword(e.target.value)}
-                type="text"
+                type="password"
                 placeholder="password"
                 className="input input-bordered"
               />
@@ -69,13 +93,20 @@ const Login = () => {
                 Login
               </button>
             </div>
+            <p>{error}</p>
             <div className="form-control mt-1">
-              <button className="btn btn-accent flex justify-evenly">
+              <button
+                onClick={handleGoogleSignIn}
+                className="btn btn-accent flex justify-evenly"
+              >
                 Sign in With Google <FaGoogle className="h-7 w-7" />
               </button>
             </div>
             <div className="form-control mt-1">
-              <button className="btn btn-outline flex justify-evenly">
+              <button
+                onClick={handleGithubSignIn}
+                className="btn btn-outline flex justify-evenly"
+              >
                 Sign in With Github <FaGithub className="h-7 w-7" />
               </button>
             </div>

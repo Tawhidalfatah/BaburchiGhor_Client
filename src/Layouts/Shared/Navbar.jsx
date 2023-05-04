@@ -1,8 +1,16 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
+
+  const handleLogout = () => {
+    logOut();
+  };
+
   return (
     <div className="navbar bg-secondary">
       <div className="navbar-start">
@@ -33,6 +41,13 @@ const Navbar = () => {
             <li tabIndex={0}>
               <NavLink to="/blog">Blog</NavLink>
             </li>
+            {user && (
+              <li>
+                <button onClick={handleLogout} className="btn btn-link ">
+                  Logout
+                </button>
+              </li>
+            )}
           </ul>
         </div>
         <Link
@@ -56,14 +71,32 @@ const Navbar = () => {
               Blog
             </NavLink>
           </li>
+          {user && (
+            <li>
+              <button
+                onClick={handleLogout}
+                className="btn btn-link text-white"
+              >
+                Logout
+              </button>
+            </li>
+          )}
         </ul>
       </div>
       <div className="navbar-end">
-        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-          <div className="w-10 rounded-full">
-            <img src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" />
-          </div>
-        </label>
+        {user ? (
+          <>
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
+                <img src={user?.photoURL} title={user?.displayName} />
+              </div>
+            </label>
+          </>
+        ) : (
+          <Link to="/login">
+            <button className="btn btn-primary text-white">Login</button>
+          </Link>
+        )}
       </div>
     </div>
   );
