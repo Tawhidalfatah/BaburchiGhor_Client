@@ -5,6 +5,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
 
 const Register = () => {
+  // Data from Context api and states for dynamic user data
   const { createUser, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -13,6 +14,7 @@ const Register = () => {
   const [photo, setPhoto] = useState("");
   const [error, setError] = useState("");
 
+  // Functions for Registration
   const handleRegistration = (event) => {
     event.preventDefault();
     if (password.length < 6) {
@@ -43,6 +45,7 @@ const Register = () => {
   };
 
   return (
+    // Register page
     <div className="hero min-h-screen py-60">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left">
@@ -99,7 +102,7 @@ const Register = () => {
               <input
                 required
                 onChange={(e) => setPassword(e.target.value)}
-                type="text"
+                type="password"
                 placeholder="password"
                 className="input input-bordered"
               />
@@ -116,7 +119,7 @@ const Register = () => {
                 Register
               </button>
             </div>
-            {error}
+            <p className="text-error">{error}</p>
           </div>
         </div>
       </div>

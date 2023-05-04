@@ -53,7 +53,7 @@ const Navbar = () => {
         <Link
           to="/"
           style={{ fontFamily: "Satisfy" }}
-          className="btn btn-ghost normal-case text-xl text-primary"
+          className="btn btn-ghost normal-case text-3xl text-primary"
         >
           Baburchi Ghor
         </Link>

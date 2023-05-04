@@ -6,6 +6,7 @@ import { Navigate, useLocation } from "react-router-dom";
 import { RotatingLines } from "react-loader-spinner";
 
 const PrivateRoute = ({ children }) => {
+  // Validation and location history for protected route
   const { user, loading } = useContext(AuthContext);
   const location = useLocation();
   if (loading) {

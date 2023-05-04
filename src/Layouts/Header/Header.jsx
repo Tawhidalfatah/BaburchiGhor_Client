@@ -4,10 +4,12 @@ import ChefCard from "../../components/ChefCard";
 import { Map, Marker } from "pigeon-maps";
 
 const Header = () => {
+  // useState for dynamical data
   const [allChefs, setAllChefs] = useState([]);
   const [hue, setHue] = useState(0);
   const color = `hsl(${hue % 360}deg 39% 70%)`;
 
+  // useEffect for all chefs data load
   useEffect(() => {
     fetch(
       "https://b7a10-chef-recipe-hunter-server-side-tawhidalfata-tawhidalfatah.vercel.app/"
@@ -17,6 +19,7 @@ const Header = () => {
   }, []);
   return (
     <div>
+      {/* Banner Section */}
       <div
         className="hero min-h-screen"
         style={{
@@ -41,7 +44,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-
+      {/* Chefs Section */}
       <div className="mt-4 p-10">
         <h1
           style={{ fontFamily: "Satisfy" }}
@@ -63,7 +66,7 @@ const Header = () => {
       >
         Browse Our Signature Dishes
       </h1>
-
+      {/* Carousel Section */}
       <div className="carousel carousel-center rounded-box mx-2">
         <div className="carousel-item">
           <img
@@ -90,6 +93,7 @@ const Header = () => {
           <img src="https://images.unsplash.com/photo-1530610476181-d83430b64dcd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80" />
         </div>
       </div>
+      {/* Map Section */}
       <div className="divider mt-28"></div>
       <h1
         style={{ fontFamily: "Satisfy" }}

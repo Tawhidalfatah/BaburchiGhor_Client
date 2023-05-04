@@ -7,11 +7,14 @@ import Footer from "../Shared/Footer";
 
 const Home = () => {
   return (
+    // Fixed Element
     <div className="relative min-h-screen">
       <Navbar></Navbar>
       <div>
+        {/* Dynamic element */}
         <Outlet></Outlet>
       </div>
+      {/* Fixed element */}
       <div className="absolute bottom-0 w-full h-10">
         <Footer></Footer>
       </div>

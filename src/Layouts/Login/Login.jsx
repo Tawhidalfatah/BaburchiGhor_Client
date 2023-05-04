@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 const Login = () => {
+  // Data from context api and states for dynamic user data
   const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [email, setEmail] = useState("");
@@ -14,7 +15,7 @@ const Login = () => {
   console.log("login page location", location);
 
   const from = location.state?.from?.pathname || "/";
-
+  // Login Functions for firebase Auth
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((result) => {
@@ -54,6 +55,7 @@ const Login = () => {
     }
   };
   return (
+    // Login Page
     <div className="hero min-h-screen py-60">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left">
