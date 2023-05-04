@@ -12,13 +12,13 @@ const ErrorPage = () => {
       <div className="hero-content flex-col lg:flex-row-reverse">
         <Lottie animationData={error404} loop={true}></Lottie>
         <div>
-          <h1 className="text-5xl text-red-600">
-            {error.status}: {error.statusText}
-          </h1>
-          <p className="text-2xl my-5 italic">{error.data}</p>
-          <a href="/">
-            <button className="btn btn-primary">Go to Home</button>
-          </a>
+          <h1 className="text-5xl text-red-600 text-center">{error.data}</h1>
+          <br />
+          <div className="flex justify-center">
+            <a href="/">
+              <button className="btn btn-primary">Go to Home</button>
+            </a>
+          </div>
         </div>
       </div>
     </div>

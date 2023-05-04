@@ -1,9 +1,26 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useContext, useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Login = () => {
+  const { signIn } = useContext(AuthContext);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+    signIn(email, password)
+      .then((result) => {
+        console.log(result.user);
+        // navigate("/");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
   return (
     <div className="hero min-h-screen ">
       <div className="hero-content flex-col lg:flex-row-reverse">
@@ -21,6 +38,7 @@ const Login = () => {
                 <span className="label-text">Email</span>
               </label>
               <input
+                onChange={(e) => setEmail(e.target.value)}
                 type="text"
                 placeholder="email"
                 className="input input-bordered"
@@ -31,6 +49,7 @@ const Login = () => {
                 <span className="label-text">Password</span>
               </label>
               <input
+                onChange={(e) => setPassword(e.target.value)}
                 type="text"
                 placeholder="password"
                 className="input input-bordered"
@@ -46,7 +65,9 @@ const Login = () => {
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Login</button>
+              <button onClick={handleLogin} className="btn btn-primary">
+                Login
+              </button>
             </div>
             <div className="form-control mt-1">
               <button className="btn btn-accent flex justify-evenly">

@@ -40,7 +40,9 @@ const ChefDetails = () => {
                 <FaThumbsUp className="text-primary" />
               </p>
             </div>
-            <p className="text-center font-semibold">Recepies: 3</p>
+            <p className="text-center font-semibold">
+              Recepies: {chefDetails?.recipes?.length}
+            </p>
             <p className="text-center font-semibold">Years of Experience: 5</p>
           </div>
         </div>

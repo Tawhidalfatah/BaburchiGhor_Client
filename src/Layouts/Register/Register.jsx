@@ -1,8 +1,37 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
+
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+  const [photo, setPhoto] = useState("");
+  const [error, setError] = useState("");
+
+  const handleRegistration = (event) => {
+    event.preventDefault();
+    createUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+        updateProfile(result.user, {
+          displayName: name,
+          photoURL: photo,
+        })
+          .then(() => {})
+          .catch((error) => {
+            console.log(error);
+          });
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
   return (
     <div className="hero min-h-screen ">
       <div className="hero-content flex-col lg:flex-row-reverse">
@@ -22,6 +51,8 @@ const Register = () => {
                 <span className="label-text">Name</span>
               </label>
               <input
+                required
+                onChange={(e) => setName(e.target.value)}
                 type="text"
                 placeholder="name"
                 className="input input-bordered"
@@ -32,6 +63,8 @@ const Register = () => {
                 <span className="label-text">Email</span>
               </label>
               <input
+                required
+                onChange={(e) => setEmail(e.target.value)}
                 type="text"
                 placeholder="email"
                 className="input input-bordered"
@@ -42,6 +75,8 @@ const Register = () => {
                 <span className="label-text">Photo URL</span>
               </label>
               <input
+                required
+                onChange={(e) => setPhoto(e.target.value)}
                 type="text"
                 placeholder="photo"
                 className="input input-bordered"
@@ -52,6 +87,8 @@ const Register = () => {
                 <span className="label-text">Password</span>
               </label>
               <input
+                required
+                onChange={(e) => setPassword(e.target.value)}
                 type="text"
                 placeholder="password"
                 className="input input-bordered"
@@ -65,8 +102,11 @@ const Register = () => {
             </div>
 
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Register</button>
+              <button onClick={handleRegistration} className="btn btn-primary">
+                Register
+              </button>
             </div>
+            {error}
           </div>
         </div>
       </div>
