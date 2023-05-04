@@ -10,10 +10,10 @@ import ChefRecipes from "./ChefRecipes";
 
 const ChefDetails = () => {
   const chefDetails = useLoaderData();
-  const { name, bio } = chefDetails;
+  const { name, bio, years_experience } = chefDetails;
   console.log(chefDetails);
   return (
-    <div className="card lg:card-side bg-base-100 shadow-xl p-36">
+    <div className="card lg:card-side bg-base-100 shadow-xl py-36 pb-36 pt-0">
       <div className="card-body">
         <div className="card lg:card-side bg-base-100 shadow-xl">
           <div className="card-body">
@@ -28,20 +28,41 @@ const ChefDetails = () => {
                 </LazyLoad>
               </figure>
             </div>
-            <div className="flex justify-center">
-              <h2 className="card-title text-3xl text-primary">{name}</h2>
+            <div className="flex justify-center my-9">
+              <h2
+                style={{ fontFamily: "Satisfy" }}
+                className="card-title text-7xl text-primary"
+              >
+                {name}
+              </h2>
             </div>
-            <p className="text-center font-semibold">{bio}</p>
+            <p
+              style={{ fontFamily: "Satisfy" }}
+              className="text-center font-semibold text-4xl py-4"
+            >
+              {bio}
+            </p>
             <div>
-              <p className="font-semibold flex justify-center items-center gap-3">
+              <p
+                style={{ fontFamily: "Satisfy" }}
+                className="font-semibold flex justify-center items-center gap-3 text-2xl"
+              >
                 Likes: 260
                 <FaThumbsUp className="text-primary" />
               </p>
             </div>
-            <p className="text-center font-semibold">
-              Recepies: {chefDetails?.recipes?.length}
+            <p
+              style={{ fontFamily: "Satisfy" }}
+              className="text-center font-semibold text-2xl"
+            >
+              Recipes: {chefDetails?.recipes?.length}
             </p>
-            <p className="text-center font-semibold">Years of Experience: 5</p>
+            <p
+              style={{ fontFamily: "Satisfy" }}
+              className="text-center font-semibold text-2xl"
+            >
+              Years of Experience: {years_experience}
+            </p>
           </div>
         </div>
         <div className="divider"></div>

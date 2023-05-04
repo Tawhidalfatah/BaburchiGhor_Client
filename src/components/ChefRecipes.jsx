@@ -20,7 +20,12 @@ const ChefRecipes = ({ recipe }) => {
     <div className="card w-full bg-base-100 shadow-xl">
       <div className="card-body">
         <div className="flex justify-center">
-          <h2 className="card-title">{recipe?.name}</h2>
+          <h2
+            style={{ fontFamily: "Satisfy" }}
+            className="card-title text-5xl text-primary"
+          >
+            {recipe?.name}
+          </h2>
         </div>
         <div className="avatar flex justify-center my-5">
           <div className="w-24 rounded-full">
@@ -28,17 +33,37 @@ const ChefRecipes = ({ recipe }) => {
           </div>
         </div>
         <div className="flex justify-center">
-          <ul className="list-disc">
+          <ul
+            style={{ fontFamily: "Satisfy" }}
+            className="text-center font-medium"
+          >
+            <div className="divider"></div>
+            <p className="text-4xl font-semibold">Ingredients</p>
+            <br />
+            <div className="divider"></div>
             {ingredients?.map((ig, index) => (
-              <li key={index}>{ig}</li>
+              <li className="text-2xl font-medium" key={index}>
+                {ig}
+              </li>
             ))}
           </ul>
         </div>
-        <p className="text-center my-5">{cooking_method}</p>
+        <div className="divider"></div>
+        <p
+          style={{ fontFamily: "Satisfy" }}
+          className="text-center my-5 text-xl font-medium text-gray-800"
+        >
+          {cooking_method}
+        </p>
+        <div className="divider"></div>
         <div className="flex justify-center">
-          <Rating style={{ maxWidth: 180 }} value={3} readOnly />
+          <Rating
+            style={{ maxWidth: 180 }}
+            value={Math.round(recipe?.rating)}
+            readOnly
+          />
         </div>
-        <div className="card-actions justify-center">
+        <div className="card-actions justify-center py-5">
           {toggle ? (
             <button disabled className="btn btn-primary">
               Add to Favourite

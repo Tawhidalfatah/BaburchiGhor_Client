@@ -14,19 +14,24 @@ const ChefCard = ({ chef }) => {
         </LazyLoad>
       </figure>
       <div className="card-body ">
-        <div className="flex justify-center">
-          <h2 className="card-title">{chef?.name}</h2>
+        <div style={{ fontFamily: "Satisfy" }}>
+          <div className="flex justify-center">
+            <h2 className="card-title text-5xl text-primary text-center">
+              {chef?.name}
+            </h2>
+          </div>
+          <div className="divider"></div>
+          <p className=" text-center text-2xl py-2">
+            Years of Experience: {chef?.years_experience}
+          </p>
+          <p className=" text-center text-2xl py-2">
+            Number of Recipes: {chef?.recipes?.length}
+          </p>
+          <p className=" flex justify-center items-center gap-3 text-2xl py-2">
+            Likes: {chef?.likes}
+            <FaThumbsUp className="text-primary" />
+          </p>
         </div>
-        <p className="text-center">
-          Years of Experience: {chef?.years_experience}
-        </p>
-        <p className="text-center">
-          Number of Recipes: {chef?.recipes?.length}
-        </p>
-        <p className="font-semibold flex justify-center items-center gap-3">
-          Likes: {chef?.likes}
-          <FaThumbsUp className="text-primary" />
-        </p>
         <br />
         <div className="card-actions justify-center">
           <Link to={`chef/${chef.id}`}>
