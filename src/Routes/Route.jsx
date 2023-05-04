@@ -26,7 +26,10 @@ const router = createBrowserRouter([
             <ChefDetails></ChefDetails>
           </PrivateRoute>
         ),
-        loader: ({ params }) => fetch(`http://localhost:5000/${params.id}`),
+        loader: ({ params }) =>
+          fetch(
+            `https://b7a10-chef-recipe-hunter-server-side-tawhidalfata-tawhidalfatah.vercel.app/${params.id}`
+          ),
       },
       {
         path: "login",

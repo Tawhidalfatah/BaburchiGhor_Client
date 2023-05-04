@@ -10,20 +10,21 @@ const ChefCard = ({ chef }) => {
     <div className="card w-56 md:w-96 bg-base-100 shadow-xl">
       <figure>
         <LazyLoad>
-          <img
-            src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-            alt="Shoes"
-          />
+          <img className="w-full h-96" src={chef?.picture} alt="" />
         </LazyLoad>
       </figure>
       <div className="card-body ">
         <div className="flex justify-center">
-          <h2 className="card-title">Daniel</h2>
+          <h2 className="card-title">{chef?.name}</h2>
         </div>
-        <p className="text-center">Years of Experience: 2</p>
-        <p className="text-center">Number of Recipes: 2</p>
+        <p className="text-center">
+          Years of Experience: {chef?.years_experience}
+        </p>
+        <p className="text-center">
+          Number of Recipes: {chef?.recipes?.length}
+        </p>
         <p className="font-semibold flex justify-center items-center gap-3">
-          Likes: 260
+          Likes: {chef?.likes}
           <FaThumbsUp className="text-primary" />
         </p>
         <br />

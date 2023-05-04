@@ -31,7 +31,7 @@ const Login = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
-        navigate("/");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error.message);
@@ -44,7 +44,7 @@ const Login = () => {
       signIn(email, password)
         .then((result) => {
           console.log(result.user);
-          navigate("/");
+          navigate(from, { replace: true });
         })
         .catch((error) => {
           setError(error.message);
@@ -54,7 +54,7 @@ const Login = () => {
     }
   };
   return (
-    <div className="hero min-h-screen ">
+    <div className="hero min-h-screen py-60">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold text-primary">Login now!!!</h1>
