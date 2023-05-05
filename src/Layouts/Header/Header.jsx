@@ -101,7 +101,7 @@ const Header = () => {
       </h1>
       <div className="flex justify-center px-5 md:px-28 pb-20 md:pb-28 ">
         <Map
-          height={300}
+          height={600}
           defaultCenter={[48.86888132775037, 2.3007869202861793]}
           defaultZoom={13}
         >

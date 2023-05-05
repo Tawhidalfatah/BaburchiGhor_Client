@@ -89,7 +89,7 @@ const Login = () => {
               <label className="label">
                 <Link
                   to="/register"
-                  className="label-text-alt link link-hover font-normal"
+                  className="label-text-alt link link-hover font-normal text-base"
                 >
                   New to Baburchi Ghor? Click to{" "}
                   <span className="text-primary">Sign Up!!</span>

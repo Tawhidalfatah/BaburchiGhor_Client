@@ -2,6 +2,7 @@
 import React, { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { FaSignOutAlt } from "react-icons/fa";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -47,6 +48,7 @@ const Navbar = () => {
               <li>
                 <button onClick={handleLogout} className="btn btn-link ">
                   Logout
+                  <FaSignOutAlt />
                 </button>
               </li>
             )}
@@ -77,9 +79,10 @@ const Navbar = () => {
             <li>
               <button
                 onClick={handleLogout}
-                className="btn btn-link text-white"
+                className="btn btn-link text-white text-base"
               >
                 Logout
+                <FaSignOutAlt />
               </button>
             </li>
           )}

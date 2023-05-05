@@ -106,7 +106,10 @@ const Register = () => {
                 className="input input-bordered"
               />
               <label className="label">
-                <Link to="/login" className="label-text-alt link link-hover">
+                <Link
+                  to="/login"
+                  className="label-text-alt link link-hover text-base"
+                >
                   Already have an account?{" "}
                   <span className="text-primary">Sign In!</span>
                 </Link>
