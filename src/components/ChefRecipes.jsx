@@ -6,7 +6,11 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const ChefRecipes = ({ recipe }) => {
-  const notify = () => toast("Successfully Added to Favourites");
+  const notify = () =>
+    toast.error("Successfully Added to Favourites", {
+      position: toast.POSITION.TOP_CENTER,
+      icon: () => <img src="../../public/tomato.svg" />,
+    });
 
   const [toggle, setToggle] = useState(false);
   const { ingredients, cooking_method, img } = recipe;
@@ -38,7 +42,12 @@ const ChefRecipes = ({ recipe }) => {
             className="text-center font-medium"
           >
             <div className="divider"></div>
-            <p className="text-4xl font-semibold">Ingredients</p>
+            <p
+              style={{ fontFamily: "Satisfy" }}
+              className="text-4xl font-semibold "
+            >
+              Ingredients
+            </p>
             <br />
             <div className="divider"></div>
             {ingredients?.map((ig, index) => (
@@ -49,10 +58,8 @@ const ChefRecipes = ({ recipe }) => {
           </ul>
         </div>
         <div className="divider"></div>
-        <p
-          style={{ fontFamily: "Satisfy" }}
-          className="text-center my-5 text-xl font-medium text-gray-800"
-        >
+
+        <p className="text-center my-5 text-xl font-medium text-slate-600">
           {cooking_method}
         </p>
         <div className="divider"></div>

@@ -1,13 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import ChefCard from "../../components/ChefCard";
-import { Map, Marker } from "pigeon-maps";
+import { Map, Overlay } from "pigeon-maps";
 
 const Header = () => {
   // useState for dynamical data
   const [allChefs, setAllChefs] = useState([]);
-  const [hue, setHue] = useState(0);
-  const color = `hsl(${hue % 360}deg 39% 70%)`;
 
   // useEffect for all chefs data load
   useEffect(() => {
@@ -45,15 +43,15 @@ const Header = () => {
         </div>
       </div>
       {/* Chefs Section */}
-      <div className="mt-4 p-10">
+      <div id="chef-section" className="mt-4 p-10">
         <h1
           style={{ fontFamily: "Satisfy" }}
-          className="text-center text-primary text-7xl py-28"
+          className="text-center text-primary text-7xl py-28 leading-snug md:leading-none"
         >
           Meet Our Chefs
         </h1>
 
-        <div className="m-5 md:container md:mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="ms-2 md:ms-44 grid grid-cols-1 md:grid-cols-3 gap-4">
           {allChefs.map((chef) => (
             <ChefCard key={chef.id} chef={chef}></ChefCard>
           ))}
@@ -101,20 +99,18 @@ const Header = () => {
       >
         Find us here!!
       </h1>
-      <div className="flex justify-center px-28 pb-28 ">
-        <Map height={300} defaultCenter={[50.879, 4.6997]} defaultZoom={11}>
-          <Marker
-            width={50}
-            anchor={[50.879, 4.6997]}
-            color={color}
-            onClick={() => setHue(hue + 20)}
-          />
-          <Marker
-            width={50}
-            anchor={[50.879, 4.6997]}
-            color={color}
-            onClick={() => setHue(hue + 20)}
-          ></Marker>
+      <div className="flex justify-center px-5 md:px-28 pb-20 md:pb-28 ">
+        <Map
+          height={300}
+          defaultCenter={[48.86888132775037, 2.3007869202861793]}
+          defaultZoom={13}
+        >
+          <Overlay
+            anchor={[48.86888132775037, 2.3007869202861793]}
+            offset={[80, 40]}
+          >
+            <img src="tomato.svg" width={49} height={40} alt="" />
+          </Overlay>
         </Map>
       </div>
     </div>

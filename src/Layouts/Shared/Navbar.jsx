@@ -1,18 +1,20 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-  console.log(user);
+
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     logOut();
+    navigate("/login");
   };
 
   return (
-    <div className="navbar bg-secondary">
+    <div className="navbar bg-secondary md:p-5">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -53,17 +55,17 @@ const Navbar = () => {
         <Link
           to="/"
           style={{ fontFamily: "Satisfy" }}
-          className="btn btn-ghost normal-case text-3xl text-primary"
+          className="btn btn-ghost normal-case text-xl md:text-3xl text-primary"
         >
           Baburchi Ghor
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-          <li className="text-white">
+          <li className="text-primary font-bold">
             <NavLink to="/">Home</NavLink>
           </li>
-          <li tabIndex={0} className="text-white">
+          <li tabIndex={0} className="text-primary font-bold md:mx-2">
             <NavLink
               className={({ isActive }) => (isActive ? "active" : "")}
               to="/blog"

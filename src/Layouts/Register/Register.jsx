@@ -24,7 +24,6 @@ const Register = () => {
     if ((name, email, password)) {
       createUser(email, password)
         .then((result) => {
-          console.log(result.user);
           updateProfile(result.user, {
             displayName: name,
             photoURL: photo,
@@ -49,15 +48,15 @@ const Register = () => {
     <div className="hero min-h-screen py-60">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold text-primary">
+          <h1 className="text-5xl font-bold text-primary text-center">
             Register to start Eating!!!
           </h1>
-          <p className="py-6">
+          <p className="py-6 text-center text-2xl">
             You are really missing out the offers on our delicious food by our
             Baburchis. <span className="text-primary">Sign Up!!</span>
           </p>
         </div>
-        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <div className="card flex-shrink-0 w-full max-w-xl shadow-2xl bg-base-100">
           <div className="card-body">
             <div className="form-control">
               <label className="label">

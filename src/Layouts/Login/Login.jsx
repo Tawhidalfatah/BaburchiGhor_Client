@@ -12,7 +12,6 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
-  console.log("login page location", location);
 
   const from = location.state?.from?.pathname || "/";
   // Login Functions for firebase Auth
@@ -20,22 +19,22 @@ const Login = () => {
     googleSignIn()
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
+
         navigate(from, { replace: true });
       })
       .catch((error) => {
-        console.log(error.message);
+        setError(error.message);
       });
   };
   const handleGithubSignIn = () => {
     githubSignIn()
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
+
         navigate(from, { replace: true });
       })
       .catch((error) => {
-        console.log(error.message);
+        setError(error.message);
       });
   };
 
@@ -58,14 +57,13 @@ const Login = () => {
     // Login Page
     <div className="hero min-h-screen py-60">
       <div className="hero-content flex-col lg:flex-row-reverse">
-        <div className="text-center lg:text-left">
+        <div className="text-center">
           <h1 className="text-5xl font-bold text-primary">Login now!!!</h1>
-          <p className="py-6">
-            What are you waiting for!? Login now to enter the heaven of
-            delicious cuisuine!!
+          <p className="py-6 text-2xl">
+            To Enter the heaven of delicious cuisuine!!
           </p>
         </div>
-        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <div className="card flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100">
           <div className="card-body">
             <div className="form-control">
               <label className="label">

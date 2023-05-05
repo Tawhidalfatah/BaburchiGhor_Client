@@ -11,7 +11,7 @@ import ChefRecipes from "./ChefRecipes";
 const ChefDetails = () => {
   const chefDetails = useLoaderData();
   const { name, bio, years_experience } = chefDetails;
-  console.log(chefDetails);
+
   return (
     <div className="card lg:card-side bg-base-100 shadow-xl py-36 pb-36 pt-0">
       <div className="card-body">
@@ -36,35 +36,29 @@ const ChefDetails = () => {
                 {name}
               </h2>
             </div>
-            <p
-              style={{ fontFamily: "Satisfy" }}
-              className="text-center font-semibold text-4xl py-4"
-            >
-              {bio}
-            </p>
+            <p className="text-center font-semibold text-4xl py-4">{bio}</p>
             <div>
-              <p
-                style={{ fontFamily: "Satisfy" }}
-                className="font-semibold flex justify-center items-center gap-3 text-2xl"
-              >
+              <p className="font-semibold flex justify-center items-center gap-3 text-2xl py-3">
                 Likes: 260
                 <FaThumbsUp className="text-primary" />
               </p>
             </div>
+
             <p
-              style={{ fontFamily: "Satisfy" }}
-              className="text-center font-semibold text-2xl"
-            >
-              Recipes: {chefDetails?.recipes?.length}
-            </p>
-            <p
-              style={{ fontFamily: "Satisfy" }}
+              // style={{ fontFamily: 'Montserrat' }}
               className="text-center font-semibold text-2xl"
             >
               Years of Experience: {years_experience}
             </p>
           </div>
         </div>
+        <div className="divider"></div>
+        <h2
+          style={{ fontFamily: "Satisfy" }}
+          className="text-center text-primary text-6xl my-9"
+        >
+          Recipes : {chefDetails?.recipes?.length}
+        </h2>
         <div className="divider"></div>
         <div className="flex gap-1">
           {chefDetails?.recipes?.map((recipe, index) => (

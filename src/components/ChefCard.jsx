@@ -14,9 +14,12 @@ const ChefCard = ({ chef }) => {
         </LazyLoad>
       </figure>
       <div className="card-body ">
-        <div style={{ fontFamily: "Satisfy" }}>
+        <div>
           <div className="flex justify-center">
-            <h2 className="card-title text-5xl text-primary text-center">
+            <h2
+              style={{ fontFamily: "Satisfy" }}
+              className="card-title text-5xl text-primary text-center"
+            >
               {chef?.name}
             </h2>
           </div>
