@@ -9,14 +9,15 @@ const Blog = () => {
     <div className="container mx-auto relative">
       <div className="alert shadow-lg bg-base-100 my-3">
         <div>
-          <div>
+          <div className="flex gap-2">
+            <img className="w-8" src="tomato.svg" alt="" />
             <h3 className="font-bold text-2xl text-primary">
               Click the Download button to download PDF of the Blog Page
             </h3>
           </div>
         </div>
         <div className="flex-none">
-          <Pdf targetRef={ref} filename="code-example.pdf">
+          <Pdf targetRef={ref} filename="blog_Q&A.pdf">
             {({ toPdf }) => (
               <button className="btn btn-primary btn-lg" onClick={toPdf}>
                 Download

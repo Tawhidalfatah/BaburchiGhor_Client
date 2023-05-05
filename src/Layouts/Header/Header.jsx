@@ -33,7 +33,7 @@ const Header = () => {
             >
               Hello there!!
             </h1>
-            <p className="mb-5 text-white font-medium text-xl">
+            <p className="mb-5 text-white font-semibold text-xl">
               You, Hungry? Tired of eating the same food again and again? Need
               to try the best of the best French Cuisuine there can be? You are
               in the right place.
