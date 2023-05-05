@@ -60,7 +60,7 @@ const Header = () => {
       <div className="divider"></div>
       <h1
         style={{ fontFamily: "Satisfy" }}
-        className="text-center text-primary text-7xl mt-28 mb-11 py-20"
+        className="text-center text-primary text-7xl mt-28 mb-11 py-20 leading-snug"
       >
         Browse Our Signature Dishes
       </h1>

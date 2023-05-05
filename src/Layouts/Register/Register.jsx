@@ -32,7 +32,9 @@ const Register = () => {
             .catch((error) => {
               console.log(error);
             });
+
           logOut();
+
           navigate("/login");
         })
         .catch((error) => {
